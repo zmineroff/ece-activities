@@ -1,6 +1,48 @@
 <div>
     <div id="prompt"></div>
-    <input id="answer" />
+    <div id="matrix-container">
+        <table id="left-matrix" class="matrix">
+            <tr>
+              <td><input id="answer_1_1" /></td>
+              <td><input id="answer_1_2" /></td> 
+              <td><input id="answer_1_3" /></td>
+              <td><input id="answer_1_4" /></td>
+            </tr>
+            <tr>
+              <td><input id="answer_2_1" /></td>
+              <td><input id="answer_2_2" /></td> 
+              <td><input id="answer_2_3" /></td>
+              <td><input id="answer_2_4" /></td>
+            </tr>
+            <tr>
+              <td><input id="answer_3_1" /></td>
+              <td><input id="answer_3_2" /></td> 
+              <td><input id="answer_3_3" /></td>
+              <td><input id="answer_3_4" /></td>
+            </tr>
+            <tr>
+                <td><input id="answer_4_1" /></td>
+                <td><input id="answer_4_2" /></td> 
+                <td><input id="answer_4_3" /></td>
+                <td><input id="answer_4_4" /></td>
+              </tr>
+          </table>
+    </div>
     <div id="hint"></div>
     <div id="feedback"></div>
 </div>
+
+
+<style>
+  #matrix-container {
+    width: 500px;
+  }
+
+  .matrix {
+    width: 300px;
+  }
+
+  .matrix input {
+    width: 100%;
+  }
+</style>
