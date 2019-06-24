@@ -6,7 +6,7 @@
         "The number is about 40."
     ],
     "match": {
-        "nan": "You must input a number.",
+        "nan": "You must input a number for all cells.",
         "small": "That's too small.",
         "big": "That's too large.",
         "justright": [
