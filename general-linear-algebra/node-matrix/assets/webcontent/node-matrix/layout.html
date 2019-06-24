@@ -4,28 +4,28 @@
   <div id="matrix-container">
     <table id="left-matrix" class="matrix">
       <tr>
-        <td><input id="answer_0_0" /></td>
-        <td><input id="answer_0_1" /></td>
-        <td><input id="answer_0_2" /></td>
-        <td><input id="answer_0_3" /></td>
+        <td><input id="answer_0_0" type="number" /></td>
+        <td><input id="answer_0_1" type="number" /></td>
+        <td><input id="answer_0_2" type="number" /></td>
+        <td><input id="answer_0_3" type="number" /></td>
       </tr>
       <tr>
-        <td><input id="answer_1_0" /></td>
-        <td><input id="answer_1_1" /></td>
-        <td><input id="answer_1_2" /></td>
-        <td><input id="answer_1_3" /></td>
+        <td><input id="answer_1_0" type="number" /></td>
+        <td><input id="answer_1_1" type="number" /></td>
+        <td><input id="answer_1_2" type="number" /></td>
+        <td><input id="answer_1_3" type="number" /></td>
       </tr>
       <tr>
-        <td><input id="answer_2_0" /></td>
-        <td><input id="answer_2_1" /></td>
-        <td><input id="answer_2_2" /></td>
-        <td><input id="answer_2_3" /></td>
+        <td><input id="answer_2_0" type="number" /></td>
+        <td><input id="answer_2_1" type="number" /></td>
+        <td><input id="answer_2_2" type="number" /></td>
+        <td><input id="answer_2_3" type="number" /></td>
       </tr>
       <tr>
-        <td><input id="answer_3_0" /></td>
-        <td><input id="answer_3_1" /></td>
-        <td><input id="answer_3_2" /></td>
-        <td><input id="answer_3_3" /></td>
+        <td><input id="answer_3_0" type="number" /></td>
+        <td><input id="answer_3_1" type="number" /></td>
+        <td><input id="answer_3_2" type="number" /></td>
+        <td><input id="answer_3_3" type="number" /></td>
       </tr>
     </table>
 
@@ -51,19 +51,19 @@
     </table>
 
     <table id="right-matrix" class="matrix">
-        <tr>
-          <td><input id="answer_V1" /></td>
-        </tr>
-        <tr>
-            <td><input id="answer_V2" /></td>
-        </tr>
-        <tr>
-            <td><input id="answer_V3" /></td>
-        </tr>
-        <tr>
-            <td><input id="answer_V4" /></td>
-        </tr>
-      </table>
+      <tr>
+        <td><input id="answer_V1" /></td>
+      </tr>
+      <tr>
+        <td><input id="answer_V2" /></td>
+      </tr>
+      <tr>
+        <td><input id="answer_V3" /></td>
+      </tr>
+      <tr>
+        <td><input id="answer_V4" /></td>
+      </tr>
+    </table>
   </div>
 
   <div id="hint"></div>
@@ -100,6 +100,17 @@
     width: 100%;
     height: 100%;
     padding: 5px;
+  }
+
+  .matrix input::-webkit-outer-spin-button,
+  .matrix input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .matrix input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
   }
 
   #v-matrix td {

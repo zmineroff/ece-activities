@@ -12,10 +12,7 @@ interface State {
 
 const activity: Activity<State> = {
     init: (): State => ({
-      answer: math.matrix([[undefined, undefined, undefined, undefined],
-                           [undefined, undefined, undefined, undefined],
-                           [undefined, undefined, undefined, undefined],
-                           [undefined, undefined, undefined, undefined]]),
+      answer: math.matrix().resize([nLeftRows, nLeftCols], null),
       hint: widgets.emptyHint
     }),
     read: (): State => ({
@@ -24,7 +21,12 @@ const activity: Activity<State> = {
     }),
     render: (data: QuestionData<State>): void => {
         $("#prompt").html(data.prompt!);
-        $("#answer_0_0").val(data.state.answer.get([0,0]));
+        for (let iRow=0; iRow<nLeftRows; iRow++) {
+          for (let iCol=0; iCol<nLeftCols; iCol++) {
+            let inputId = "#answer_" + iRow + "_" + iCol;
+            $(inputId).val(data.state.answer.get([iRow,iCol]));
+          }
+        }
         $("#hint")
             .empty()
             .append(widgets.hint(data.hints!, data.state.hint));
@@ -33,9 +35,15 @@ const activity: Activity<State> = {
             .append(widgets.feedback(data.parts[0].feedback));
     },
     parse: (state: State): [ParseResponse] => {
-        if (state.answer.get([0,0]) === undefined) return ["nan"];
+        if (state.answer.get([0,0]) === null) return ["nan"];
         const n = parseFloat(state.answer.get([0,0]));
+        const n2 = parseFloat(state.answer.get([0,1]));
         if (isNaN(n)) return ["nan"];
+
+        if (n==n2) {
+          return ["justright"];
+        }
+
         if (n < 42) return ["small"];
         if (n > 42) return ["big"];
         return ["justright"];
@@ -46,6 +54,7 @@ export default activity;
 
 
 
+// TODO: handle fractions; 2nd answer https://stackoverflow.com/questions/7142657/convert-fraction-string-to-decimal
 function readMatrixInterface(nRows, nCols) {
   var m = math.matrix();
   m.resize([nRows, nCols], undefined);
@@ -59,7 +68,7 @@ function readMatrixInterface(nRows, nCols) {
       console.log(value);
       if (isNaN(value)) {
         console.log('hoi');
-        value = undefined;
+        value = null;
       }
 
       m.subset(math.index(iRow, iCol),value);
