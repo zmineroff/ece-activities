@@ -1,17 +1,19 @@
 {
     "prompt": "Enter the correct numbers in the matrix:",
     "hints": [
-        "Just try a number and see what happens!",
-        "The number is even.",
-        "The number is about 40."
+        "Use KCL",
+        "Hint 2.",
+        "Hint 3."
     ],
     "match": {
         "nan": "You must input a number for all cells.",
-        "small": "That's too small.",
-        "big": "That's too large.",
-        "justright": [
+        "row0wrong": "Row 1 wrong.",
+        "row1wrong": "Row 2 wrong.",
+        "row2wrong": "Row 3 wrong.",
+        "row3wrong": "Row 4 wrong.",
+        "correct": [
             true,
-            "That's just right!"
+            "Correct!"
         ]
     }
 }
