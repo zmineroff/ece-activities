@@ -1,5 +1,6 @@
 <div>
   <div id="prompt"></div>
+
   <div id="matrix-container">
     <table id="left-matrix" class="matrix">
       <tr>
@@ -27,7 +28,44 @@
         <td><input id="answer_4_4" /></td>
       </tr>
     </table>
+
+    <table id="v-matrix" class="matrix">
+      <tr>
+        <td>V<sub>1</sub></td>
+      </tr>
+      <tr>
+        <td>V<sub>2</sub></td>
+      </tr>
+      <tr>
+        <td>V<sub>3</sub></td>
+      </tr>
+      <tr>
+        <td>V<sub>4</sub></td>
+      </tr>
+    </table>
+
+    <table id="equals" class="matrix">
+      <tr>
+        <td>=</td>
+      </tr>
+    </table>
+
+    <table id="right-matrix" class="matrix">
+        <tr>
+          <td><input id="answer_V1" /></td>
+        </tr>
+        <tr>
+            <td><input id="answer_V2" /></td>
+        </tr>
+        <tr>
+            <td><input id="answer_V3" /></td>
+        </tr>
+        <tr>
+            <td><input id="answer_V4" /></td>
+        </tr>
+      </table>
   </div>
+
   <div id="hint"></div>
   <div id="feedback"></div>
 </div>
@@ -35,14 +73,43 @@
 
 <style>
   #matrix-container {
-    width: 500px;
+    width: 750px;
+    overflow: hidden;
+    padding-left: 10px;
   }
 
   .matrix {
-    width: 300px;
+    border-collapse: collapse;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .matrix tr {
+    padding: 0;
+  }
+
+  .matrix td {
+    padding: 0;
+    width: 75px;
+    height: 50px;
+    border: 1px solid black;
   }
 
   .matrix input {
     width: 100%;
+    height: 100%;
+    padding: 5px;
+  }
+
+  #v-matrix td {
+    text-align: center;
+  }
+
+  #equals td {
+    border: none;
+    width: 25px;
+    text-align: center;
+    font-size: 32px;
   }
 </style>

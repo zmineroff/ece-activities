@@ -9,12 +9,12 @@ interface State {
 const activity: Activity<State> = {
     init: (): State => ({ answer: "", hint: widgets.emptyHint }),
     read: (): State => ({
-        answer: `${$("#answer1_1").val()}`,
+        answer: `${$("#answer_1_1").val()}`,
         hint: widgets.readHint($("#hint"))
     }),
     render: (data: QuestionData<State>): void => {
         $("#prompt").html(data.prompt!);
-        $("#answer1_1").val(data.state.answer);
+        $("#answer_1_1").val(data.state.answer);
         $("#hint")
             .empty()
             .append(widgets.hint(data.hints!, data.state.hint));

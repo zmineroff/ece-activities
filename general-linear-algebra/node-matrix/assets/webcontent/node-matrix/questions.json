@@ -1,5 +1,5 @@
 {
-    "prompt": "Enter the correct number:",
+    "prompt": "Enter the correct numbers in the matrix:",
     "hints": [
         "Just try a number and see what happens!",
         "The number is even.",
