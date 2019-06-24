@@ -1,0 +1,17 @@
+{
+    "prompt": "Enter the correct number:",
+    "hints": [
+        "Just try a number and see what happens!",
+        "The number is even.",
+        "The number is about 40."
+    ],
+    "match": {
+        "nan": "You must input a number.",
+        "small": "That's too small.",
+        "big": "That's too large.",
+        "justright": [
+            true,
+            "That's just right!"
+        ]
+    }
+}
