@@ -19,6 +19,7 @@ const activity: Activity<State> = {
         $("#feedback")
             .empty()
             .append(widgets.feedback(data.parts[0].feedback));
+        $("#circuit-image").attr("src", data.config.circuitImg);
     },
     parse: (state: State): [ParseResponse] => {
         if (state.answer.trim() === "") return [null];

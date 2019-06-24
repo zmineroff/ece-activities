@@ -1,4 +1,7 @@
 {
+    "config": {
+      "circuitImg": "./assets/webcontent/select-nodes/circuit-currents-no-nodes.png"
+    },
     "prompt": "Enter the correct number:",
     "hints": [
         "Just try a number and see what happens!",
