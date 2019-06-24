@@ -5,9 +5,7 @@
     "outDir": "lib",
     "module": "commonjs",
     "sourceMap": true,
-    "types": [
-        "jquery"
-    ],
+    "types": ["jquery"],
     "strict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

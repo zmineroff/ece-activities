@@ -15,7 +15,9 @@ const activity: Activity<State> = {
     render: (data: QuestionData<State>): void => {
         $("#prompt").html(data.prompt!);
         $("#answer1_1").val(data.state.answer);
-        $("#hint").empty().append(widgets.hint(data.hints!, data.state.hint));
+        $("#hint")
+            .empty()
+            .append(widgets.hint(data.hints!, data.state.hint));
         $("#feedback")
             .empty()
             .append(widgets.feedback(data.parts[0].feedback));
