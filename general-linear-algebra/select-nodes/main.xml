@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE embed_activity PUBLIC "-//Carnegie Mellon University//DTD Embed 1.1//EN" "http://oli.cmu.edu/dtd/oli-embed-activity_1.0.dtd">
+<embed_activity id="select-nodes" width="676" height="250">
+  <title>Select relevant unknown nodes</title>
+  <source>webcontent/select-nodes/activity.js</source>
+  <assets>
+    <asset name="layout">webcontent/select-nodes/layout.html</asset>
+    <asset name="questions">webcontent/select-nodes/questions.json</asset>
+  </assets>
+</embed_activity>
