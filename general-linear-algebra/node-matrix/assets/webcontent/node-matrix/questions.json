@@ -7,10 +7,10 @@
     ],
     "match": {
         "nan": "You must input a number for all cells.",
-        "row0wrong": "Row 1 wrong.",
-        "row1wrong": "Row 2 wrong.",
-        "row2wrong": "Row 3 wrong.",
-        "row3wrong": "Row 4 wrong.",
+        "row0wrong": "Row 1 is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
+        "row1wrong": "Row 2 is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
+        "row2wrong": "Row 3 is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
+        "row3wrong": "Row 4 is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
         "correct": [
             true,
             "Correct!"
