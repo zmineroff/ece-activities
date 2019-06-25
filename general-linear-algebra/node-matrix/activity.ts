@@ -2,8 +2,8 @@ import { QuestionData, Activity, ParseResponse } from "@calculemus/oli-hammock";
 import * as widgets from "@calculemus/oli-widgets";
 import * as math from 'mathjs';
 
-const nLeftRows = 4;
-const nLeftCols = 4;
+const nRows = 4;
+const nCols = 5;
 
 interface State {
   answer: math.Matrix;
@@ -12,17 +12,17 @@ interface State {
 
 const activity: Activity<State> = {
   init: (): State => ({
-    answer: math.matrix().resize([nLeftRows, nLeftCols], null),
+    answer: math.matrix().resize([nRows, nCols], null),
     hint: widgets.emptyHint
   }),
   read: (): State => ({
-    answer: math.matrix(readMatrixInterface(nLeftRows, nLeftCols)),
+    answer: math.matrix(readMatrixInterface(nRows, nCols)),
     hint: widgets.readHint($("#hint"))
   }),
   render: (data: QuestionData<State>): void => {
     $("#prompt").html(data.prompt!);
-    for (let iRow = 0; iRow < nLeftRows; iRow++) {
-      for (let iCol = 0; iCol < nLeftCols; iCol++) {
+    for (let iRow = 0; iRow < nRows; iRow++) {
+      for (let iCol = 0; iCol < nCols; iCol++) {
         let inputId = "#answer_" + iRow + "_" + iCol;
         $(inputId).val(data.state.answer.get([iRow, iCol]));
       }
@@ -35,8 +35,8 @@ const activity: Activity<State> = {
       .append(widgets.feedback(data.parts[0].feedback));
   },
   parse: (state: State): [ParseResponse] => {
-    for (let iRow = 0; iRow < nLeftRows; iRow++) {
-      for (let iCol = 0; iCol < nLeftCols; iCol++) {
+    for (let iRow = 0; iRow < nRows; iRow++) {
+      for (let iCol = 0; iCol < nCols; iCol++) {
         let value = state.answer.get([iRow, iCol]);
         if (value === null) {
           return ["nan"];
@@ -44,26 +44,23 @@ const activity: Activity<State> = {
       }
     }
 
-    const correctM = math.matrix([[23/24,  -1/2,     0,  -1/8],
-                                  [  1/2,  -3/4,   1/4,     0],
-                                  [    0,   1/4,  -3/4,   1/2],
-                                  [  1/8,     0,   1/2,  -9/8]]);
+    const correctMatrix = math.matrix([[23/24,  -1/2,     0,  -1/8,  3],
+                                       [  1/2,  -3/4,   1/4,     0,  0],
+                                       [    0,   1/4,  -3/4,   1/2,  0],
+                                       [  1/8,     0,   1/2,  -9/8,  0]]);
 
-    const floatCompTolerance = 0.001;
-    for (let iRow = 0; iRow < nLeftRows; iRow++) {
+    const floatCompTolerance = 0.01;
+    for (let iRow = 0; iRow < nRows; iRow++) {
+      // Allow multiplying by scalar
       let firstColResp = state.answer.get([iRow, 0]);
-      let scalar = firstColResp / correctM.get([iRow,0]);
-      for (let iCol = 1; iCol < nLeftCols; iCol++) {
-        let correctByScalar = correctM.get([iRow,iCol]) * scalar;
+      let scalar = firstColResp / correctMatrix.get([iRow,0]);
+
+      for (let iCol = 1; iCol < nCols; iCol++) {
+        let correctByScalar = correctMatrix.get([iRow,iCol]) * scalar;
         let value = state.answer.get([iRow, iCol]);
         let valueCorrect = Math.abs(correctByScalar - value) < floatCompTolerance;
 
         if (!valueCorrect) {
-          console.log("firstColResp: " + firstColResp);
-          console.log("scalar: " + scalar);
-          console.log("correctByScalar: " + correctByScalar);
-          console.log("value: " + value);
-          console.log(iCol);
           return ["row"+iRow+"wrong"];
         }
       }
