@@ -35,6 +35,7 @@ const activity: Activity<State> = {
       .append(widgets.feedback(data.parts[0].feedback));
   },
   parse: (state: State): [ParseResponse] => {
+    // check that a number is entered in all cells
     for (let iRow = 0; iRow < nRows; iRow++) {
       for (let iCol = 0; iCol < nCols; iCol++) {
         let value = state.answer.get([iRow, iCol]);
@@ -49,20 +50,13 @@ const activity: Activity<State> = {
                                        [    0,   1/4,  -3/4,   1/2,  0],
                                        [  1/8,     0,   1/2,  -9/8,  0]]);
 
-    const floatCompTolerance = 0.01;
+    //const floatCompTolerance = 0.01;
     for (let iRow = 0; iRow < nRows; iRow++) {
-      // Allow multiplying by scalar
-      let firstColResp = state.answer.get([iRow, 0]);
-      let scalar = firstColResp / correctMatrix.get([iRow,0]);
-
-      for (let iCol = 1; iCol < nCols; iCol++) {
-        let correctByScalar = correctMatrix.get([iRow,iCol]) * scalar;
-        let value = state.answer.get([iRow, iCol]);
-        let valueCorrect = Math.abs(correctByScalar - value) < floatCompTolerance;
-
-        if (!valueCorrect) {
-          return ["row"+iRow+"wrong"];
-        }
+      let submittedVector = getRowAsVector(state.answer, iRow);
+      let correctVector = getRowAsVector(correctMatrix, iRow);
+      let rowCorrect = isScalarMultiple(submittedVector, correctVector);
+      if (!rowCorrect) {
+        return ["row"+iRow+"wrong"];
       }
     }
 
@@ -93,4 +87,69 @@ function readMatrixInterface(nRows: number, nCols: number) {
   }
 
   return m;
+}
+
+// return true if vector2 is a scalar multiple of vector 1
+// return false otherwise
+function isScalarMultiple(vector1: math.Matrix, vector2: math.Matrix) {
+  console.log("Vec1: " + vector1);
+  console.log("Vec2: " + vector2);
+  let len = math.max(math.size(vector1));
+  console.log("len: " + len);
+  if (len!==math.max(math.size(vector2))) {
+    return false;
+  }
+
+  let zeroTolerance = 0.001;
+  let valueTolerance = 0.01;
+
+  let bothAllZero = true;
+  let scalar = null;
+  for (let i=0; i<len; i++) {
+    let val1 = vector1.get([i]);
+    let val2 = vector2.get([i]);
+    let val1zero = floatsEquivalent(val1,0,zeroTolerance);
+    let val2zero = floatsEquivalent(val2,0,zeroTolerance);
+    if (val1zero !== val2zero) {
+      return false;
+    }
+    if (bothAllZero && (!val1zero || !val2zero)) {
+      bothAllZero = false;
+    }
+    if (scalar===null
+        && !val1zero
+        && !val2zero) {
+          scalar = val1 / val2;
+    }
+    let val2ByScalar = val2 * scalar;
+    let val1IsMultByScalar = floatsEquivalent(val2ByScalar, val1, valueTolerance);
+
+    if (!val1IsMultByScalar) {
+      return false;
+    }
+  }
+
+  if (bothAllZero) {
+    return true;
+  }
+
+  if (scalar===null) {
+    return false;
+  }
+
+  return true;
+}
+
+
+//return true if two floats are equivalent, within tolerance
+function floatsEquivalent(float1: number, float2: number, tolerance: number) {
+  return Math.abs(float1 - float2) < tolerance;
+}
+
+// returns row from matrix as a vector
+function getRowAsVector(m: math.Matrix, row: number) {
+  let rowMatrix = (math as any).row(m, row);
+  let len = math.max(math.size(rowMatrix));
+  let rowVector = math.reshape(rowMatrix, [len]);
+  return rowVector as math.Matrix;
 }
