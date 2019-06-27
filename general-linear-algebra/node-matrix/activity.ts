@@ -28,8 +28,11 @@ const activity: Activity<State> = {
             for (let iCol = 0; iCol < nCols; iCol++) {
                 let inputId = "#answer_" + iRow + "_" + iCol;
                 let value = data.state.answer.get([iRow, iCol]);
-                console.log(typeof value);
-                $(inputId).val(value);
+                if (value===null) {
+                    $(inputId).val('');
+                } else {
+                    $(inputId).val(math.format(value));
+                }
             }
         }
 
@@ -56,10 +59,10 @@ const activity: Activity<State> = {
 
         // Check that each row of answer is a scalar multiple of correct matrix
         const correctMatrix = math.matrix([
-            [23 / 24, -1 / 2, 0, -1 / 8, 3],
-            [1 / 2, -3 / 4, 1 / 4, 0, 0],
-            [0, 1 / 4, -3 / 4, 1 / 2, 0],
-            [1 / 8, 0, 1 / 2, -9 / 8, 0]
+            [23/24,  -1/2,    0,   -1/8,  3],
+            [  1/2,  -3/4,   1/4,     0,  0],
+            [    0,   1/4,  -3/4,   1/2,  0],
+            [  1/8,     0,   1/2,  -9/8,  0]
         ]);
 
         for (let iRow = 0; iRow < nRows; iRow++) {
@@ -77,21 +80,32 @@ const activity: Activity<State> = {
 
 export default activity;
 
-// takes
+
+// Takes number string and returns decimal or fraction
 function evaluateNumberStr(numberStr: string) {
-    var numIsFraction = numberStr.includes("/");
+    let numIsFraction = numberStr.includes("/");
     if (numIsFraction) {
-        let fracParts = numberStr.split("/");
-        return parseFloat(fracParts[0]) / parseFloat(fracParts[1]);
-        // return math.fraction(numberStr);
+        try {
+            return math.fraction(numberStr);
+        }
+        catch {
+            let fracParts = numberStr.split("/");
+            let value = parseFloat(fracParts[0]) / parseFloat(fracParts[1]);
+            if (isNaN(value)) {
+                return null;
+            }
+            return value;
+        }
     }
 
-    return parseFloat(numberStr);
+    let value = parseFloat(numberStr);
+    if (isNaN(value)) {
+        return null;
+    }
+    return value;
 }
 
-// TODO: handle fractions (if so, don't use number type on input)
-// 2nd answer https://stackoverflow.com/questions/7142657/convert-fraction-string-to-decimal
-// can also use math.fraction
+// Reads matrix inputs from student interface
 function readMatrixInterface(nRows: number, nCols: number) {
     var m = math.matrix();
     m.resize([nRows, nCols], undefined);
@@ -101,9 +115,6 @@ function readMatrixInterface(nRows: number, nCols: number) {
             let inputId = "#answer_" + iRow + "_" + iCol;
             let rawValue = `${$(inputId).val()}`;
             let value = evaluateNumberStr(rawValue);
-            if (isNaN(value)) {
-                value = null;
-            }
 
             m.subset(math.index(iRow, iCol), value);
         }
