@@ -3,7 +3,7 @@
     "hints": [
         "Use KCL and Ohm’s Law to write an equation for each node.",
         "Using KCL, each equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
-        "To get the current flowing into or out of a node, you can use Ohm's Law, which states that: (current) = (voltage/resistance)"
+        "To get each current flowing into or out of a node, you can use Ohm's Law, which states that: (current) = (voltage drop/resistance)"
     ],
     "match": {
         "nan": "Please input a number for all cells.",
