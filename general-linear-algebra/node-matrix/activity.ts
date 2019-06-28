@@ -78,7 +78,15 @@ const activity: Activity<State> = {
                 }
 
                 // Check for putting equations in wrong order
-
+                let otherRows = math.range(0,iRow);
+                otherRows = math.concat(otherRows, math.range(iRow+1, nRows)) as math.Matrix;
+                for (let iOther=0; iOther<nRows-1; iOther++) {
+                    let otherCorrectVector = getRowAsVector(correctMatrix,iOther);
+                    let rowInWrongOrder = isScalarMultiple(submittedVector,otherCorrectVector);
+                    if (rowInWrongOrder) {
+                        return ["wrongOrder"];
+                    }
+                }
 
                 // Generic row wrong
                 return ["row" + iRow + "wrong"];

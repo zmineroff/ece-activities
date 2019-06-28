@@ -7,14 +7,19 @@
     ],
     "match": {
         "nan": "Please input a number for all cells.",
+
         "row0wrongSign": "In your equation for V<sub>1</sub>, all of the magnitudes are correct, but at least one sign is wrong. Make sure your current flows are in the correct direction as shown in the diagram.",
-        "row2wrongSign": "In your equation for V<sub>2</sub>, all of the magnitudes are correct, but at least one sign is wrong. Make sure your current flows are in the correct direction as shown in the diagram.",
-        "row3wrongSign": "In your equation for V<sub>3</sub>, all of the magnitudes are correct, but at least one sign is wrong. Make sure your current flows are in the correct direction as shown in the diagram.",
-        "row4wrongSign": "In your equation for V<sub>4</sub>, all of the magnitudes are correct, but at least one sign is wrong. Make sure your current flows are in the correct direction as shown in the diagram.",
+        "row1wrongSign": "In your equation for V<sub>2</sub>, all of the magnitudes are correct, but at least one sign is wrong. Make sure your current flows are in the correct direction as shown in the diagram.",
+        "row2wrongSign": "In your equation for V<sub>3</sub>, all of the magnitudes are correct, but at least one sign is wrong. Make sure your current flows are in the correct direction as shown in the diagram.",
+        "row3wrongSign": "In your equation for V<sub>4</sub>, all of the magnitudes are correct, but at least one sign is wrong. Make sure your current flows are in the correct direction as shown in the diagram.",
+
+        "wrongOrder": "Make sure that your equations are written in the correct order. For this question, the equations should be written in the order of node V<sub>1</sub>, V<sub>2</sub>, V<sub>3</sub>, and V<sub>4</sub>. If you believe you have written the nodes in this order, make sure you are properly using KCL.",
+
         "row0wrong": "Your equation for V<sub>1</sub> is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
         "row1wrong": "Your equation for V<sub>2</sub> is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
         "row2wrong": "Your equation for V<sub>3</sub> is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
         "row3wrong": "Your equation for V<sub>4</sub> is incorrect. Make sure that each equation is made using KCL. Therefore every equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
+
         "correct": [
             true,
             "Correct!"
