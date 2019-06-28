@@ -1,3 +1,9 @@
+/*
+ * ECE General Linear Algebra Problem: node-matrix
+ * Student enters equation values for circuit problem into matrix
+ * author: Zach Mineroff (zmineroff@cmu.edu)
+*/
+
 import { QuestionData, Activity, ParseResponse } from "@calculemus/oli-hammock";
 import * as widgets from "@calculemus/oli-widgets";
 import * as math from "mathjs";
@@ -12,7 +18,7 @@ interface State {
 
 const activity: Activity<State> = {
     init: (): State => ({
-        answer: math.matrix().resize([nRows, nCols], 9),
+        answer: math.matrix().resize([nRows, nCols], null),
         hint: widgets.emptyHint
     }),
     read: (): State => ({
@@ -142,9 +148,6 @@ function readMatrixInterface(nRows: number, nCols: number) {
 
 // Returns true if vector2 is a scalar multiple of vector1, false otherwise
 function isScalarMultiple(vector1: math.Matrix, vector2: math.Matrix) {
-    console.log("Vec1: " + vector1);
-    console.log("Vec2: " + vector2);
-
     // Check that lengths are equal
     const len = math.setSize(vector1);
     if (len !== math.setSize(vector2)) {

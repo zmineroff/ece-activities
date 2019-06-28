@@ -87,51 +87,54 @@
 
 
 
-  #matrix-container {
-    width: 750px;
-    overflow: hidden;
-    padding-left: 10px;
-    margin-bottom: 15px;
-  }
+    #matrix-container {
+        width: 750px;
+        overflow: hidden;
+        padding-left: 10px;
+        margin-bottom: 15px;
+    }
 
-  .matrix {
-    border-collapse: collapse;
-    height: 200px;
-    float: left;
-    margin-right: 10px;
-  }
+    .matrix {
+        border-collapse: collapse;
+        height: 200px;
+        float: left;
+        margin-right: 10px;
+    }
 
-  .matrix tr {
-    padding: 0;
-  }
+    .matrix tr {
+        padding: 0;
+    }
 
-  .matrix td {
-    padding: 0;
-    width: 75px;
-    height: 50px;
-    border: 1px solid black;
-  }
+    .matrix td {
+        padding: 0;
+        width: 75px;
+        height: 50px;
+        border: 1px solid black;
+    }
 
-  .matrix input {
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-  }
+    .matrix input {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+    }
 
-  #v-matrix td {
-    text-align: center;
-  }
+    #v-matrix td {
+        text-align: center;
+    }
 
-  #equals td {
-    border: none;
-    width: 25px;
-    text-align: center;
-    font-size: 32px;
-  }
+    #equals td {
+        border: none;
+        width: 25px;
+        text-align: center;
+        font-size: 32px;
+    }
 </style>
+
 
 <script type="text/javascript">
     $(".matrix input").on('input', function () {
         this.value = this.value.replace(/[^0-9\.\-\/]+|(?<=\/)\/|(?<=\.)\.|(?<=\-)\-/, '');
     });
+
+    $(".matrix input").attr('autocomplete','off');
 </script>
