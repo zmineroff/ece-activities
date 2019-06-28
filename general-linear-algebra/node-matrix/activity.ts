@@ -68,8 +68,19 @@ const activity: Activity<State> = {
         for (let iRow = 0; iRow < nRows; iRow++) {
             let submittedVector = getRowAsVector(state.answer, iRow);
             let correctVector = getRowAsVector(correctMatrix, iRow);
-            let rowCorrect = isScalarMultiple(submittedVector, correctVector);
-            if (!rowCorrect) {
+            let rowIsScalarMultiple = isScalarMultiple(submittedVector, correctVector);
+            if (!rowIsScalarMultiple) {
+                // Check for correct magnitude, but wrong sign
+                let correctMagnitude = isScalarMultiple(math.abs(submittedVector),
+                                                        math.abs(correctVector));
+                if (correctMagnitude) {
+                    return ["row" + iRow + "wrongSign"];
+                }
+
+                // Check for putting equations in wrong order
+
+
+                // Generic row wrong
                 return ["row" + iRow + "wrong"];
             }
         }
@@ -83,6 +94,7 @@ export default activity;
 
 // Takes number string and returns decimal or fraction
 function evaluateNumberStr(numberStr: string) {
+    let value: number;
     let numIsFraction = numberStr.includes("/");
     if (numIsFraction) {
         try {
@@ -90,15 +102,12 @@ function evaluateNumberStr(numberStr: string) {
         }
         catch {
             let fracParts = numberStr.split("/");
-            let value = parseFloat(fracParts[0]) / parseFloat(fracParts[1]);
-            if (isNaN(value)) {
-                return null;
-            }
-            return value;
+            value = parseFloat(fracParts[0]) / parseFloat(fracParts[1]);
         }
+    } else {
+        value = parseFloat(numberStr);
     }
 
-    let value = parseFloat(numberStr);
     if (isNaN(value)) {
         return null;
     }
