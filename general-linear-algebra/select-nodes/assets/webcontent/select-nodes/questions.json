@@ -2,7 +2,7 @@
     "config": {
       "circuitImg": "./assets/webcontent/select-nodes/circuit-currents-no-nodes.png"
     },
-    "prompt": "Enter the correct number:",
+    "prompt": "Assume that the current flow and voltage polarities are as indicated in the circuit below. Select all of the unknown nodes that are relevant to solving for the labeled currents listed above.",
     "hints": [
         "Just try a number and see what happens!",
         "The number is even.",

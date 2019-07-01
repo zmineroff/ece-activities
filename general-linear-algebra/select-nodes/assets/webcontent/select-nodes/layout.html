@@ -1,19 +1,80 @@
 <div>
     <div id="prompt"></div>
     <div id="circuit-container">
-      <img id="circuit-image" src="" alt="a circuit with 8 nodes">
+        <img id="circuit-image" src="" alt="a circuit with 8 nodes">
+
+        <label id="A" class="toprow"><input type="checkbox" name="answer" value="A" />A</label>
+        <label id="B" class="toprow"><input type="checkbox" name="answer" value="B" />B</label>
+        <label id="C" class="toprow"><input type="checkbox" name="answer" value="C" />C</label>
+        <label id="D" class="toprow"><input type="checkbox" name="answer" value="D" />D</label>
+        <label id="E" class="bottomrow"><input type="checkbox" name="answer" value="E" />E</label>
+        <label id="F" class="bottomrow"><input type="checkbox" name="answer" value="F" />F</label>
+        <label id="G" class="bottomrow"><input type="checkbox" name="answer" value="G" />G</label>
+        <label id="H" class="bottomrow"><input type="checkbox" name="answer" value="H" />H</label>
     </div>
-    <input id="answer" />
+
     <div id="hint"></div>
     <div id="feedback"></div>
 </div>
 
 <style>
-  #circuit-container {
-    width: 600px;
-  }
+    #circuit-container {
+        width: 600px;
+        margin: 10px;
+    }
 
-  #circuit-image {
-    width: 550px;
-  }
+    #circuit-image {
+        width: 550px;
+    }
+
+    #circuit-container {
+        font-size: 16pt;
+        color: green;
+    }
+
+    #circuit-container label {
+        position: absolute;
+    }
+
+    /* Inputs */
+    .topRow {
+        top: 90;
+    }
+
+    #A {
+        left: 100px;
+    }
+
+    #B {
+        left: 250px;
+    }
+
+    #C {
+        left: 390px;
+    }
+
+    #D {
+        left: 535px;
+    }
+
+    .bottomRow {
+        top: 268px;
+    }
+
+    #E {
+        top: 260px;
+        left: 80px;
+    }
+
+    #F {
+        left: 250px;
+    }
+
+    #G {
+        left: 390px;
+    }
+
+    #H {
+        left: 535px;
+    }
 </style>
