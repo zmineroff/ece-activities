@@ -2,19 +2,18 @@
     "config": {
       "circuitImg": "./assets/webcontent/select-nodes/circuit-currents-no-nodes.png"
     },
-    "prompt": "Assume that the current flow and voltage polarities are as indicated in the circuit below. Select all of the unknown nodes that are relevant to solving for the labeled currents listed above.",
+    "prompt": "Assume that the current flow and voltage polarities are as indicated in the circuit below. Select all of the unknown nodes that are relevant to solving for the labeled currents.",
     "hints": [
-        "Just try a number and see what happens!",
-        "The number is even.",
-        "The number is about 40."
+        "A relevant node would help us generate equations to find unknown node volatages."
     ],
     "match": {
-        "nan": "You must input a number.",
-        "small": "That's too small.",
-        "big": "That's too large.",
-        "justright": [
+        "nan": "Please select the unknown nodes that are relevant to solving for the labeled currents in the diagram.",
+        "selectedVoltageNode": "Not quite. We are only looking for the unknown node voltages. Remember that we do know the values for the voltage source.",
+        "selectedIrrelevantNode": "At least one of the nodes you have picked can actually be encompassed through other nodes in the circuit.",
+        "selectedSubsetCorrect": "Not quite right. The nodes you have selected are relevant to solving for the labeled currents, but they are not sufficient.",
+        "correct": [
             true,
-            "That's just right!"
+            "Correct! While we do need the nodes adjacent to the voltage source, the top left and bottom left nodes already have known voltage values of 9V and 0V respectively. Therefore, the only unknown nodes that we need are the 4 middle nodes."
         ]
     }
 }
