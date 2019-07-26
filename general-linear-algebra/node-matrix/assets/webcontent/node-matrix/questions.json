@@ -1,5 +1,5 @@
 {
-    "prompt": "Based on the useful nodes, please fill the matrices below to contain the equations for the relevant nodes. Fill out the equations in the order of nodes V<sub>1</sub>, V<sub>2</sub>, V<sub>3</sub>, and V<sub>4</sub> respectively. You don't have to worry about the row-reduction of this matrix as it will be modified in the next part to be more convenient for row-reduction.",
+    "prompt": "Based on the useful nodes, please fill the matrices below to contain the equations for the relevant nodes. Fill out the equations in the order of nodes V<sub>1</sub>, V<sub>2</sub>, V<sub>3</sub>, and V<sub>4</sub> respectively. You don't have to worry about the row-reduction of this matrix as it will be modified in the next part to be more convenient for row-reduction. In each cell, please only enter decimals or whole-number fractions.",
     "hints": [
         "Use KCL and Ohm’s Law to write an equation for each node.",
         "Using KCL, each equation should be of the form: (current flowing into the node) = (current flowing out of the node)",
