@@ -2,9 +2,9 @@
 <!DOCTYPE embed_activity PUBLIC "-//Carnegie Mellon University//DTD Embed 1.1//EN" "http://oli.cmu.edu/dtd/oli-embed-activity_1.0.dtd">
 <embed_activity id="node-matrix" width="676" height="250">
   <title>Fill in matrix to contain equations for the relevant nodes</title>
-  <source>webcontent/linear_algebra_and_circuits/node-matrix/activity.js</source>
+  <source>webcontent/linear_algebra_and_circuits/general_linear_algebra_example/node-matrix/activity.js</source>
   <assets>
-    <asset name="layout">webcontent/linear_algebra_and_circuits/node-matrix/layout.html</asset>
-    <asset name="questions">webcontent/linear_algebra_and_circuits/node-matrix/questions.json</asset>
+    <asset name="layout">webcontent/linear_algebra_and_circuits/general_linear_algebra_example/node-matrix/layout.html</asset>
+    <asset name="questions">webcontent/linear_algebra_and_circuits/general_linear_algebra_example/node-matrix/questions.json</asset>
   </assets>
 </embed_activity>

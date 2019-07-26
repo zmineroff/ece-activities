@@ -1,7 +1,7 @@
 {
     "config" : {
         "oliRoot": "C:\\Users\\zmineroff\\Documents\\OLI_Repos\\ece_circuits_and_math_foundations",
-        "subDir": "linear_algebra_and_circuits",
+        "subDir": "linear_algebra_and_circuits\\general_linear_algebra_example",
         "activityIdent": "node-matrix"
     },
     "scripts": {
