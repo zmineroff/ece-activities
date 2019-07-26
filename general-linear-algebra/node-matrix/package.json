@@ -1,10 +1,18 @@
 {
+    "config" : {
+        "oliRoot": "C:\\Users\\zmineroff\\Documents\\OLI_Repos\\ece_circuits_and_math_foundations"
+    },
     "scripts": {
         "prettier": "prettier --write *.json *.ts src/*.ts",
         "watch": "webpack-dev-server --progress --colors",
         "webpack": "webpack",
         "predist": "npm run webpack",
-        "dist": "surge dist node-matrix-oli-hammock.surge.sh"
+        "dist": "surge dist node-matrix-oli-hammock.surge.sh",
+        "copyMain": "copy main.xml %npm_package_config_oliRoot%\\content\\x-oli-embed-activity\\node-matrix.xml",
+        "copyAssets": "xcopy /e /y .\\assets\\* %npm_package_config_oliRoot%\\content\\",
+        "copyActivity": "copy dist\\activity.js %npm_package_config_oliRoot%\\content\\webcontent\\IDENT\\activity.js",
+        "predeploy": "npm run webpack",
+        "deploy": "npm run copyMain && npm run copyAssets && npm run copyActivity"
     },
     "devDependencies": {
         "@calculemus/oli-hammock": "^4.0.0",
