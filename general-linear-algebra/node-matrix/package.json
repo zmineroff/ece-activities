@@ -1,6 +1,7 @@
 {
     "config" : {
         "oliRoot": "C:\\Users\\zmineroff\\Documents\\OLI_Repos\\ece_circuits_and_math_foundations",
+        "subDir": "linear_algebra_and_circuits",
         "activityIdent": "node-matrix"
     },
     "scripts": {
@@ -9,9 +10,9 @@
         "webpack": "webpack",
         "predist": "npm run webpack",
         "dist": "surge dist node-matrix-oli-hammock.surge.sh",
-        "deployMain": "copy main.xml %npm_package_config_oliRoot%\\content\\x-oli-embed-activity\\%npm_package_config_activityIdent%.xml",
-        "deployAssets": "xcopy /e /y .\\assets\\* %npm_package_config_oliRoot%\\content\\",
-        "deployActivity": "copy .\\dist\\activity.js %npm_package_config_oliRoot%\\content\\webcontent\\%npm_package_config_activityIdent%\\activity.js",
+        "deployMain": "copy main.xml %npm_package_config_oliRoot%\\content\\x-oli-embed-activity\\%npm_package_config_subDir%\\%npm_package_config_activityIdent%.xml",
+        "deployAssets": "xcopy /e /y .\\assets\\webcontent\\* %npm_package_config_oliRoot%\\content\\webcontent\\%npm_package_config_subDir%\\",
+        "deployActivity": "copy .\\dist\\activity.js %npm_package_config_oliRoot%\\content\\webcontent\\%npm_package_config_subDir%\\%npm_package_config_activityIdent%\\activity.js",
         "predeploy": "npm run webpack",
         "deploy": "npm run deployMain && npm run deployAssets && npm run deployActivity"
     },
