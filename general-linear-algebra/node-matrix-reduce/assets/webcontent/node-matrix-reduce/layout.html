@@ -104,7 +104,7 @@
       #voltage-responses {
           padding: 5px;
       }
-      
+
       #voltage-responses input {
         width: 60px;
       }
@@ -117,5 +117,12 @@
       });
   
       $(".matrix input").attr('autocomplete','off');
+
+
+      $("#voltage-responses input").on('input', function () {
+          this.value = this.value.replace(/[^0-9\.\-\/]+|(?<=\/)\/|(?<=\.)\.|(?<=\-)\-/, '');
+      });
+  
+      $("#voltage-responses input").attr('autocomplete','off');
   </script>
   

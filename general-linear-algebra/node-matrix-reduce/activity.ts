@@ -13,16 +13,28 @@ const nCols = 5;
 
 interface State {
     answer: math.Matrix;
+    v4resp: number | math.Fraction;
+    v3resp: number | math.Fraction;
+    v2resp: number | math.Fraction;
+    v1resp: number | math.Fraction;
     hint: widgets.HintData;
 }
 
 const activity: Activity<State> = {
     init: (): State => ({
         answer: math.matrix().resize([nRows, nCols], null),
+        v4resp: null,
+        v3resp: null,
+        v2resp: null,
+        v1resp: null,
         hint: widgets.emptyHint
     }),
     read: (): State => ({
         answer: math.matrix(readMatrixInterface(nRows, nCols)),
+        v4resp: readVoltageInput("v4_response"),
+        v3resp: readVoltageInput("v3_response"),
+        v2resp: readVoltageInput("v2_response"),
+        v1resp: readVoltageInput("v1_response"),
         hint: widgets.readHint($("#hint"))
     }),
     render: (data: QuestionData<State>): void => {
@@ -157,6 +169,13 @@ function evaluateNumberStr(numberStr: string) {
     if (isNaN(value)) {
         return null;
     }
+    return value;
+}
+
+// Reads voltage input from student interface
+function readVoltageInput(inputId: string) {
+    let rawValue = `${$(inputId).val()}`;
+    let value = evaluateNumberStr(rawValue) as number | math.Fraction;
     return value;
 }
 
