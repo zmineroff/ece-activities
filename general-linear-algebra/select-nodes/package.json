@@ -1,5 +1,5 @@
 {
-    "config" : {
+    "config": {
         "oliRoot": "C:\\Users\\zmineroff\\Documents\\OLI_Repos\\ece_circuits_and_math_foundations",
         "subDir": "linear_algebra_and_circuits\\general_linear_algebra_example",
         "activityIdent": "select-nodes"
@@ -17,7 +17,7 @@
         "deploy": "npm run deployMain && npm run deployAssets && npm run deployActivity"
     },
     "devDependencies": {
-        "@calculemus/oli-hammock": "^4.0.0",
+        "@calculemus/oli-hammock": "github:zmineroff/oli-hammock",
         "@calculemus/oli-widgets": "^4.0.0",
         "@types/jquery": "^3.3.16",
         "path": "^0.12.7",
@@ -32,5 +32,6 @@
     "prettier": {
         "printWidth": 110,
         "tabWidth": 4
-    }
+    },
+    "dependencies": {}
 }
