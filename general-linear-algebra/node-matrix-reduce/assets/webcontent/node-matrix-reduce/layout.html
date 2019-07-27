@@ -1,0 +1,121 @@
+<div>
+    <div id="prompt"></div>
+  
+    <div id="matrix-container">
+      <table id="left-matrix" class="matrix">
+        <tr>
+          <td><input id="answer_0_0" /></td>
+          <td><input id="answer_0_1" /></td>
+          <td><input id="answer_0_2" /></td>
+          <td><input id="answer_0_3" /></td>
+          <td><input id="answer_0_4" /></td>
+        </tr>
+        <tr>
+          <td><input id="answer_1_0" /></td>
+          <td><input id="answer_1_1" /></td>
+          <td><input id="answer_1_2" /></td>
+          <td><input id="answer_1_3" /></td>
+          <td><input id="answer_1_4" /></td>
+        </tr>
+        <tr>
+          <td><input id="answer_2_0" /></td>
+          <td><input id="answer_2_1" /></td>
+          <td><input id="answer_2_2" /></td>
+          <td><input id="answer_2_3" /></td>
+          <td><input id="answer_2_4" /></td>
+        </tr>
+        <tr>
+          <td><input id="answer_3_0" /></td>
+          <td><input id="answer_3_1" /></td>
+          <td><input id="answer_3_2" /></td>
+          <td><input id="answer_3_3" /></td>
+          <td><input id="answer_3_4" /></td>
+        </tr>
+        <tr>
+            <td><input id="answer_4_0" /></td>
+            <td><input id="answer_4_1" /></td>
+            <td><input id="answer_4_2" /></td>
+            <td><input id="answer_4_3" /></td>
+            <td><input id="answer_4_4" /></td>
+          </tr>
+      </table>
+    </div>
+
+    <div id="voltage-responses">
+        <p>V4 = <input id="v4_response" /> V</p>
+        <p>V3 = <input id="v3_response" /> V</p>
+        <p>V2 = <input id="v2_response" /> V</p>
+        <p>V1 = <input id="v1_response" /> V</p>
+    </div>
+  
+    <div id="hint"></div>
+    <div id="feedback"></div>
+  </div>
+  
+  
+  <style>
+      #prompt {
+          padding: 5px;
+          margin-bottom: 10px;
+      }
+  
+      #hint {
+          margin-bottom: 10px;
+      }
+  
+      .btn-sm {
+          margin-bottom: 5px;
+      }
+  
+  
+  
+      #matrix-container {
+          width: 750px;
+          overflow: hidden;
+          padding-left: 10px;
+          margin-bottom: 15px;
+      }
+  
+      .matrix {
+          border-collapse: collapse;
+          height: 200px;
+          float: left;
+          margin-right: 10px;
+      }
+  
+      .matrix tr {
+          padding: 0;
+      }
+  
+      .matrix td {
+          padding: 0;
+          width: 75px;
+          height: 50px;
+          border: 1px solid black;
+      }
+  
+      .matrix input {
+          width: 100%;
+          height: 100%;
+          padding: 5px;
+      }
+
+
+      #voltage-responses {
+          padding: 5px;
+      }
+      
+      #voltage-responses input {
+        width: 60px;
+      }
+  </style>
+  
+  
+  <script type="text/javascript">
+      $(".matrix input").on('input', function () {
+          this.value = this.value.replace(/[^0-9\.\-\/]+|(?<=\/)\/|(?<=\.)\.|(?<=\-)\-/, '');
+      });
+  
+      $(".matrix input").attr('autocomplete','off');
+  </script>
+  

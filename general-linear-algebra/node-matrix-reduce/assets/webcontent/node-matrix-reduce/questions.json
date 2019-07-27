@@ -1,0 +1,35 @@
+{
+    "prompt": "Now, assuming that each column corresponds to one of the node voltages in the original circuit (1st column = V1, second column is V2, etc...) please row reduce this and write the result below. (HINT: The voltages should all be whole numbers.)",
+    "hints": [
+        "Try to eliminate variable V1 from all the bottom 4 equations, V2 from the bottom 3 equations etc… You will know you have done this right if you end with a pivot in the first 4 columns.",
+        "To eliminate a variable in a specific column, multiply/divide rows by scalars such that the column you want to eliminate has a matching coefficients and then subtract and replace a row with our newly computed row."
+    ],
+    "match": {
+        "nan": "Please input a number for all cells.",
+
+        "row0scalarMult": "In row 1, the first non-zero value (if any) should be 1.",
+        "row1scalarMult": "In row 2, the first non-zero value (if any) should be 1.",
+        "row2scalarMult": "In row 3, the first non-zero value (if any) should be 1.",
+        "row3scalarMult": "In row 4, the first non-zero value (if any) should be 1.",
+        "row4scalarMult": "In row 5, the first non-zero value (if any) should be 1.",
+
+        "row0wrongSign": "In row 1, all of the magnitudes are correct, but at least one sign is wrong.",
+        "row1wrongSign": "In row 2, all of the magnitudes are correct, but at least one sign is wrong.",
+        "row2wrongSign": "In row 3, all of the magnitudes are correct, but at least one sign is wrong.",
+        "row3wrongSign": "In row 4, all of the magnitudes are correct, but at least one sign is wrong.",
+        "row4wrongSign": "In row 5, all of the magnitudes are correct, but at least one sign is wrong.",
+
+        "wrongOrder": "Make sure that your values are written in the correct order. For this question, assume that each column corresponds to one of the node voltages in the original circuit.",
+
+        "row0wrong": "Row 1 is incorrect. Try and check the math for your row reduction again.",
+        "row1wrong": "Row 2 is incorrect. Try and check the math for your row reduction again.",
+        "row2wrong": "Row 3 is incorrect. Try and check the math for your row reduction again.",
+        "row3wrong": "Row 4 is incorrect. Try and check the math for your row reduction again.",
+        "row4wrong": "Row 5 is incorrect. Try and check the math for your row reduction again.",
+
+        "correct": [
+            true,
+            "Correct!"
+        ]
+    }
+}
