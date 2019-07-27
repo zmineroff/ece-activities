@@ -26,10 +26,11 @@ const activity: Activity<State> = {
         $("#feedback")
             .empty()
             .append(widgets.feedback(data.parts[0].feedback));
-        $("#circuit-image").attr("src", data.config.circuitImg);
+        //$("#circuit-image").attr("src", data.config.circuitImg);
     },
     parse: (state: State): [ParseResponse] => {
-        if (state.answer === []) return [null];
+        console.log("ANSWER: " + state.answer);
+        if (state.answer === [] || !state.answer || !state.answer.length ) return ["nan"];
 
         let selectedVoltageNode = state.answer.includes("A") || state.answer.includes("E");
         if (selectedVoltageNode) {

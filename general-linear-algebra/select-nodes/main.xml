@@ -6,5 +6,6 @@
   <assets>
     <asset name="layout">webcontent/linear_algebra_and_circuits/general_linear_algebra_example/select-nodes/layout.html</asset>
     <asset name="questions">webcontent/linear_algebra_and_circuits/general_linear_algebra_example/select-nodes/questions.json</asset>
+    <asset name="circuitImg">webcontent/linear_algebra_and_circuits/general_linear_algebra_example/select-nodes/circuit-currents-no-nodes.png</asset>
   </assets>
 </embed_activity>
