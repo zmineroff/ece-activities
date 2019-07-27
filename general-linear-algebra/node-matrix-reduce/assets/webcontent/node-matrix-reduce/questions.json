@@ -27,6 +27,11 @@
         "row3wrong": "Row 4 is incorrect. Try and check the math for your row reduction again.",
         "row4wrong": "Row 5 is incorrect. Try and check the math for your row reduction again.",
 
+        "voltage1wrong": "Your row-reduction is right, but your value for V1 is incorrect. Make sure that you are solving for each variable properly.",
+        "voltage2wrong": "Your row-reduction is right, but your value for V2 is incorrect. Make sure that you are solving for each variable properly.",
+        "voltage3wrong": "Your row-reduction is right, but your value for V3 is incorrect. Make sure that you are solving for each variable properly.",
+        "voltage4wrong": "Your row-reduction is right, but your value for V4 is incorrect. Make sure that you are solving for each variable properly.",
+
         "correct": [
             true,
             "Correct!"

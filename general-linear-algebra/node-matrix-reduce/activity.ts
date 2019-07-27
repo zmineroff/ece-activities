@@ -31,10 +31,10 @@ const activity: Activity<State> = {
     }),
     read: (): State => ({
         answer: math.matrix(readMatrixInterface(nRows, nCols)),
-        v4resp: readVoltageInput("v4_response"),
-        v3resp: readVoltageInput("v3_response"),
-        v2resp: readVoltageInput("v2_response"),
-        v1resp: readVoltageInput("v1_response"),
+        v4resp: readVoltageInput("#v4_response"),
+        v3resp: readVoltageInput("#v3_response"),
+        v2resp: readVoltageInput("#v2_response"),
+        v1resp: readVoltageInput("#v1_response"),
         hint: widgets.readHint($("#hint"))
     }),
     render: (data: QuestionData<State>): void => {
@@ -54,6 +54,12 @@ const activity: Activity<State> = {
             }
         }
 
+        // Voltage inputs
+        renderVoltageInput(data.state.v4resp, "#v4_response");
+        renderVoltageInput(data.state.v3resp, "#v3_response");
+        renderVoltageInput(data.state.v2resp, "#v2_response");
+        renderVoltageInput(data.state.v1resp, "#v1_response");
+        
         // Hints
         $("#hint")
             .empty()
@@ -141,6 +147,25 @@ const activity: Activity<State> = {
                 // Generic row wrong
                 return ["row" + iRow + "wrong"];
             }
+        }
+
+        // Check voltages
+        let v4correct = 2;
+        let v3correct = 3;
+        let v2correct = 5;
+        let v1correct = 6;
+
+        if (state.v4resp==null || state.v4resp!=v4correct) {
+            return ["voltage4wrong"];
+        }
+        if (state.v3resp==null || state.v3resp!=v3correct) {
+            return ["voltage3wrong"];
+        }
+        if (state.v2resp==null || state.v2resp!=v2correct) {
+            return ["voltage2wrong"];
+        }
+        if (state.v1resp==null || state.v1resp!=v1correct) {
+            return ["voltage1wrong"];
         }
 
         return ["correct"];
@@ -261,4 +286,13 @@ function getRowAsVector(m: math.Matrix, rowNum: number) {
     let rowMatrix = (math as any).row(m, rowNum); //row not defined in types
     let rowVector = math.flatten(rowMatrix);
     return rowVector as math.Matrix;
+}
+
+// Renders a voltage input
+function renderVoltageInput(value: number | math.Fraction, inputId: string) {
+    if (value==null) {
+        $(inputId).val('');
+    } else {
+        $(inputId).val(math.format(value));
+    }
 }
