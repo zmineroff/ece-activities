@@ -2,9 +2,9 @@
 <!DOCTYPE embed_activity PUBLIC "-//Carnegie Mellon University//DTD Embed 1.1//EN" "http://oli.cmu.edu/dtd/oli-embed-activity_1.0.dtd">
 <embed_activity id="node-matrix-reduce" width="676" height="250">
   <title>Custom activity</title>
-  <source>webcontent/node-matrix-reduce/activity.js</source>
+  <source>webcontent/linear_algebra_and_circuits/general_linear_algebra_example/node-matrix-reduce/activity.js</source>
   <assets>
-    <asset name="layout">webcontent/node-matrix-reduce/layout.html</asset>
-    <asset name="questions">webcontent/node-matrix-reduce/questions.json</asset>
+    <asset name="layout">webcontent/linear_algebra_and_circuits/general_linear_algebra_example/node-matrix-reduce/layout.html</asset>
+    <asset name="questions">webcontent/linear_algebra_and_circuits/general_linear_algebra_example/node-matrix-reduce/questions.json</asset>
   </assets>
 </embed_activity>

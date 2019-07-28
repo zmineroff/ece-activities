@@ -7,7 +7,7 @@
     "scripts": {
         "prettier": "prettier --write *.json *.ts src/*.ts",
         "watch": "webpack-dev-server --progress --colors",
-        "webpack": "webpack; cp -R assets main.xml node_modules\\@calculemus\\oli-hammock\\assets\\* dist",
+        "webpack": "webpack",
         "predist": "npm run webpack",
         "dist": "surge dist node-matrix-reduce-oli-hammock.surge.sh",
         "deployMain": "copy main.xml %npm_package_config_oliRoot%\\content\\x-oli-embed-activity\\%npm_package_config_subDir%\\%npm_package_config_activityIdent%.xml",
