@@ -38,12 +38,32 @@ const activity: Activity<State> = {
             .append(widgets.feedback(data.parts[0].feedback));
     },
     parse: (state: State): [ParseResponse] => {
-        if (state.diffeq_var_1.trim() === "") return [null];
-        const n = parseInt(state.diffeq_var_1);
-        if (isNaN(n)) return ["nan"];
-        if (n < 42) return ["small"];
-        if (n > 42) return ["big"];
-        return ["justright"];
+        let diffeq_var_1_resp = state.diffeq_var_1.replace(/\s/g,'');
+        let coeff_linear_term_resp = state.coeff_linear_term.replace(/\s/g,'');
+        let diffeq_var_2_resp = state.diffeq_var_2.replace(/\s/g,'');
+        let forcing_function_resp = state.forcing_function.replace(/\s/g,'');
+
+        if (diffeq_var_1_resp === ""
+            || coeff_linear_term_resp === ""
+            || diffeq_var_2_resp === ""
+            || forcing_function_resp === "") {
+                return ["nan"];
+        }
+
+        if (diffeq_var_1_resp.toUpperCase() !== "V1") {
+            return ["diffeq_var_1_wrong"];
+        }
+        if (coeff_linear_term_resp.toUpperCase() !== "1/RC") {
+            return ["coeff_linear_term_wrong"];
+        }
+        if (diffeq_var_2_resp.toUpperCase() !== "V1") {
+            return ["diffeq_var_2_wrong"];
+        }
+        if (forcing_function_resp.toUpperCase() !== "IS/C") {
+            return ["forcing_function_wrong"];
+        }
+
+        return ["correct"];
     }
 };
 

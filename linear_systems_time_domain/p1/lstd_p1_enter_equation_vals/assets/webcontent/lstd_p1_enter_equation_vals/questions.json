@@ -1,17 +1,17 @@
 {
     "prompt": "Rearrange the equation 2 in standard form by entering the values in the blocks provided.",
     "hints": [
-        "Just try a number and see what happens!",
-        "The number is even.",
-        "The number is about 40."
+        "Try to look at the similarities between the standard equation provided and equation 2."
     ],
     "match": {
-        "nan": "You must input a number.",
-        "small": "That's too small.",
-        "big": "That's too large.",
-        "justright": [
+        "nan": "Please input a response for all cells.",
+        "diffeq_var_1_wrong": "Your differential equation variable is incorrect.",
+        "coeff_linear_term_wrong": "Your coefficient on the linear term is incorrect.",
+        "diffeq_var_2_wrong": "Your differential equation variable is incorrect.",
+        "forcing_function_wrong": "Your forcing function is incorrect.",
+        "correct": [
             true,
-            "That's just right!"
+            "Correct! This proves that the circuit is a first order circuit and is governed by a first order differential equation."
         ]
     }
 }
