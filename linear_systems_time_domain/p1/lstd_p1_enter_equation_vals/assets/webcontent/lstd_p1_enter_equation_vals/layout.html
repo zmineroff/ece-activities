@@ -10,7 +10,7 @@
                         <mrow>
                             <semantics>
                                 <annotation-xml encoding="application/xhtml+xml">
-                                    <input xmlns="http://www.w3.org/1999/xhtml" type="text" size="2" id="answer" />
+                                    <input xmlns="http://www.w3.org/1999/xhtml" type="text" size="2" id="diffeq_var_1" />
                                 </annotation-xml>
                             </semantics>
                         </mrow>
@@ -23,14 +23,32 @@
             </mfrac>
             <mo>+</mo>
             <mfenced open="[" close="]" separators="|">
-                <mrow></mrow>
+                <mrow>
+                    <semantics>
+                        <annotation-xml encoding="application/xhtml+xml">
+                            <input xmlns="http://www.w3.org/1999/xhtml" type="text" size="2" id="coeff_linear_term" />
+                        </annotation-xml>
+                    </semantics>
+                </mrow>
             </mfenced>
             <mfenced separators="|">
-                <mrow></mrow>
+                <mrow>
+                    <semantics>
+                        <annotation-xml encoding="application/xhtml+xml">
+                            <input xmlns="http://www.w3.org/1999/xhtml" type="text" size="2" id="diffeq_var_2" />
+                        </annotation-xml>
+                    </semantics>
+                </mrow>
             </mfenced>
             <mo>=</mo>
             <mfenced open="{" close="}" separators="|">
-                <mrow></mrow>
+                <mrow>
+                    <semantics>
+                        <annotation-xml encoding="application/xhtml+xml">
+                            <input xmlns="http://www.w3.org/1999/xhtml" type="text" size="2" id="forcing_function" />
+                        </annotation-xml>
+                    </semantics>
+                </mrow>
             </mfenced>
         </math>
     </div>
@@ -46,5 +64,9 @@
 <style>
     #equation-container {
         font-size: 150%;
+    }
+
+    #equation-container input {
+        width: 75px;
     }
 </style>
