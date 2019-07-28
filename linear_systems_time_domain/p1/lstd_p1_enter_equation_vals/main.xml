@@ -2,9 +2,12 @@
 <!DOCTYPE embed_activity PUBLIC "-//Carnegie Mellon University//DTD Embed 1.1//EN" "http://oli.cmu.edu/dtd/oli-embed-activity_1.0.dtd">
 <embed_activity id="lstd_p1_enter_equation_vals" width="676" height="250">
   <title>Custom activity</title>
-  <source>webcontent/lstd_p1_enter_equation_vals/activity.js</source>
+  <!-- <source>webcontent/linear_systems_time_domain/p1/lstd_p1_enter_equation_vals/activity.js</source> -->
+  <source>webcontent/activity.js</source>
   <assets>
-    <asset name="layout">webcontent/lstd_p1_enter_equation_vals/layout.html</asset>
-    <asset name="questions">webcontent/lstd_p1_enter_equation_vals/questions.json</asset>
+    <!-- <asset name="layout">webcontent/linear_systems_time_domain/p1/lstd_p1_enter_equation_vals/layout.html</asset>
+    <asset name="questions">webcontent/linear_systems_time_domain/p1/lstd_p1_enter_equation_vals/questions.json</asset> -->
+    <asset name="layout">webcontent/layout.html</asset>
+    <asset name="questions">webcontent/questions.json</asset>
   </assets>
 </embed_activity>

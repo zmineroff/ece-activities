@@ -1,10 +1,20 @@
 {
+    "config": {
+        "oliRoot": "C:\\Users\\zmineroff\\Documents\\OLI_Repos\\ece_circuits_and_math_foundations",
+        "subDir": "linear_systems_time_domain\\p1",
+        "activityIdent": "lstd_p1_enter_equation_vals"
+    },
     "scripts": {
         "prettier": "prettier --write *.json *.ts src/*.ts",
         "watch": "webpack-dev-server --progress --colors",
-        "webpack": "webpack; cp -R assets main.xml node_modules\\@calculemus\\oli-hammock\\assets\\* dist",
+        "webpack": "webpack",
         "predist": "npm run webpack",
-        "dist": "surge dist lstd_p1_enter_equation_vals-oli-hammock.surge.sh"
+        "dist": "surge dist lstd_p1_enter_equation_vals-oli-hammock.surge.sh",
+        "deployMain": "copy main.xml %npm_package_config_oliRoot%\\content\\x-oli-embed-activity\\%npm_package_config_subDir%\\%npm_package_config_activityIdent%.xml",
+        "deployAssets": "xcopy /e /y .\\assets\\webcontent\\* %npm_package_config_oliRoot%\\content\\webcontent\\%npm_package_config_subDir%\\",
+        "deployActivity": "copy .\\dist\\activity.js %npm_package_config_oliRoot%\\content\\webcontent\\%npm_package_config_subDir%\\%npm_package_config_activityIdent%\\activity.js",
+        "predeploy": "npm run webpack",
+        "deploy": "npm run deployMain && npm run deployAssets && npm run deployActivity"
     },
     "devDependencies": {
         "@calculemus/oli-hammock": "^4.0.0",
