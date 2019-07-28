@@ -1,0 +1,16 @@
+{
+    "target": "es6",
+    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "lib",
+    "module": "commonjs",
+    "sourceMap": true,
+    "types": [
+        "jquery"
+    ],
+    "strict": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true
+}
