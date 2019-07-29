@@ -57,16 +57,40 @@
     <div id="feedback"></div>
 </div>
 
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 <style>
+    #prompt {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    #hint {
+        margin-bottom: 10px;
+    }
+
+    .btn-sm {
+        margin-bottom: 5px;
+    }
+    
+
+    
     #equation-container {
         font-size: 150%;
+        padding-left: 10px;
+        margin-bottom: 15px;
     }
 
     #equation-container input {
         width: 75px;
     }
 </style>
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/javascript">
+    $("#equation-container input").attr('autocomplete','off');
+</script>
