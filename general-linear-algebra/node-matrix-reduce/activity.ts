@@ -41,10 +41,21 @@ const activity: Activity<State> = {
         // Prompt
         $("#prompt").html(data.prompt!);
 
-        // OLI data stored as array. Convert to matrix on load.
+        // OLI data stored as generic JSON object. Convert to matrix on load.
         if (typeof data.state.answer.get !== 'function') {
             // @ts-ignore
             data.state.answer = math.matrix(data.state.answer.data);
+
+            // convert fractions
+            for (let iRow = 0; iRow < nRows; iRow++) {
+                for (let iCol = 0; iCol < nCols; iCol++) {
+                    let value = data.state.answer.get([iRow, iCol]);
+                    if (value.mathjs === 'Fraction') {
+                        let newValue = math.fraction(value.n + '/' + value.d);
+                        data.state.answer.set([iRow, iCol], newValue);
+                    }
+                }
+            }
         }
 
         // Matrix inputs
