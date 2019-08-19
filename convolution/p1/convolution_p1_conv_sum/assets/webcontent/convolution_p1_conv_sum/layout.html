@@ -1,6 +1,69 @@
 <div>
     <div id="prompt"></div>
-    <input id="answer" />
-    <div id="hint"></div>
+
+    <div id="equation-container">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+            <mi>y</mi>
+            <mfenced open="[" close="]" separators=''>
+                <mi>n</mi>
+            </mfenced>
+            <mo>=</mo>
+            <munderover>
+                <mo>&sum;</mo>
+                <mrow>
+                    <mi>k</mi>
+                    <mo>=</mo>
+                    <mo>-</mo>
+                    <mo>&infin;</mo>
+                </mrow>
+                <mo>&infin;</mo>
+            </munderover>
+            <mi>x</mi>
+            <mfenced open="[" close="]" separators=''>
+                <semantics>
+                    <annotation-xml encoding="application/xhtml+xml">
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="text" size="2" id="x_expression" name="x_expression" />
+                    </annotation-xml>
+                </semantics>
+            </mfenced>
+            <mi>h</mi>
+            <mfenced open="[" close="]" separators=''>
+                <semantics>
+                    <annotation-xml encoding="application/xhtml+xml">
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="text" size="2" id="h_expression" name="h_expression" />
+                    </annotation-xml>
+                </semantics>
+            </mfenced>
+        </math>
+    </div>
+
     <div id="feedback"></div>
 </div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left"
+    });
+</script>
+
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/javascript">
+    $("#equation-container input").attr('autocomplete', 'off');
+</script>
+
+<style>
+    #equation-container {
+        font-size: 125%;
+        padding-left: 10px;
+        margin-bottom: 15px;
+    }
+
+    #equation-container input {
+        width: 75px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+</style>

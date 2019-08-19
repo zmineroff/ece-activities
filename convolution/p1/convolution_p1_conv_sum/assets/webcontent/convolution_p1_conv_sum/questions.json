@@ -1,10 +1,5 @@
 {
-    "prompt": "Enter the correct number:",
-    "hints": [
-        "Just try a number and see what happens!",
-        "The number is even.",
-        "The number is about 40."
-    ],
+    "prompt": "Write the convolution sum y[n] for a signal x[n], and an impulse response h[n]",
     "match": {
         "nan": "You must input a number.",
         "small": "That's too small.",
