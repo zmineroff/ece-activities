@@ -50,10 +50,21 @@ const activity: Activity<State> = {
             for (let iRow = 0; iRow < nRows; iRow++) {
                 for (let iCol = 0; iCol < nCols; iCol++) {
                     let value = data.state.answer.get([iRow, iCol]);
-                    if (value.mathjs === 'Fraction') {
+                    if (value && value.hasOwnProperty('mathjs') && value.mathjs === 'Fraction') {
                         let newValue = math.fraction(value.n + '/' + value.d);
                         data.state.answer.set([iRow, iCol], newValue);
                     }
+                }
+            }
+
+            // convert fractions for voltage inputs
+            let vResps = ['v4resp', 'v3resp', 'v2resp', 'v1resp'];
+            for (let iRow = 0; iRow < nRows; iRow++) {
+                let vResp = vResps[iRow];
+                let value = data.state[vResp];
+                if (value && value.hasOwnProperty('mathjs') && value.mathjs === 'Fraction') {
+                    let newValue = math.fraction(value.n + '/' + value.d);
+                    data.state[vResp] = math.fraction(newValue);
                 }
             }
         }

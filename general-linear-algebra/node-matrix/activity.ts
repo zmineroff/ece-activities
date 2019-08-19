@@ -38,7 +38,7 @@ const activity: Activity<State> = {
             for (let iRow = 0; iRow < nRows; iRow++) {
                 for (let iCol = 0; iCol < nCols; iCol++) {
                     let value = data.state.answer.get([iRow, iCol]);
-                    if (value.mathjs === 'Fraction') {
+                    if (value && value.hasOwnProperty('mathjs') &&  value.mathjs === 'Fraction') {
                         let newValue = math.fraction(value.n + '/' + value.d);
                         data.state.answer.set([iRow, iCol], newValue);
                     }
