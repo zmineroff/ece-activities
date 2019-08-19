@@ -1,6 +1,7 @@
 {
-    "prompt": "Now, assuming that each column corresponds to one of the node voltages in the original circuit (1st column = V1, second column is V2, etc...) please row reduce this and write the result below. (HINT: The voltages should all be whole numbers.)",
+    "prompt": "Now, assuming that each column corresponds to one of the node voltages in the original circuit (1st column = V1, second column is V2, etc...) please row reduce this and write the result below.",
     "hints": [
+        "The voltages should all be whole numbers",
         "Try to eliminate variable V1 from all the bottom 4 equations, V2 from the bottom 3 equations etc… You will know you have done this right if you end with a pivot in the first 4 columns.",
         "To eliminate a variable in a specific column, multiply/divide rows by scalars such that the column you want to eliminate has a matching coefficients and then subtract and replace a row with our newly computed row."
     ],

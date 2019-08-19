@@ -20,8 +20,6 @@
         "@calculemus/oli-hammock": "^4.0.0",
         "@calculemus/oli-widgets": "^4.0.0",
         "@types/jquery": "^3.3.16",
-        "@types/mathjs": "^6.0.0",
-        "mathjs": "^6.0.3",
         "path": "^0.12.7",
         "prettier": "^1.14.3",
         "surge": "^0.20.1",
@@ -34,5 +32,9 @@
     "prettier": {
         "printWidth": 110,
         "tabWidth": 4
+    },
+    "dependencies": {
+        "@types/mathjs": "^6.0.1",
+        "mathjs": "^6.0.4"
     }
 }

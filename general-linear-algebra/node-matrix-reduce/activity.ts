@@ -1,5 +1,5 @@
 /*
- * ECE General Linear Algebra Problem: node-matrix
+ * ECE General Linear Algebra Problem: node-matrix-reduce
  * Student enters equation values for circuit problem into matrix
  * author: Zach Mineroff (zmineroff@cmu.edu)
 */
@@ -40,6 +40,12 @@ const activity: Activity<State> = {
     render: (data: QuestionData<State>): void => {
         // Prompt
         $("#prompt").html(data.prompt!);
+
+        // OLI data stored as array. Convert to matrix on load.
+        if (typeof data.state.answer.get !== 'function') {
+            // @ts-ignore
+            data.state.answer = math.matrix(data.state.answer.data);
+        }
 
         // Matrix inputs
         for (let iRow = 0; iRow < nRows; iRow++) {

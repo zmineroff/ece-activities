@@ -29,6 +29,12 @@ const activity: Activity<State> = {
         // Prompt
         $("#prompt").html(data.prompt!);
 
+        // OLI data stored as array. Convert to matrix on load.
+        if (typeof data.state.answer.get !== 'function') {
+            // @ts-ignore
+            data.state.answer = math.matrix(data.state.answer.data);
+        }
+
         // Matrix inputs
         for (let iRow = 0; iRow < nRows; iRow++) {
             for (let iCol = 0; iCol < nCols; iCol++) {

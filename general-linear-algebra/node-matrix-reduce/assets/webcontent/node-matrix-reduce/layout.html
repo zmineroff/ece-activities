@@ -113,14 +113,20 @@
   
   <script type="text/javascript">
       $(".matrix input").on('input', function () {
-          this.value = this.value.replace(/[^0-9\.\-\/]+|(?<=\/)\/|(?<=\.)\.|(?<=\-)\-/, '');
+        this.value = this.value.replace(/[^0-9\.\-\/]/, '');
+        this.value = this.value.replace(/\/{2,}/, '/');
+        this.value = this.value.replace(/\.{2,}/, '.');
+        this.value = this.value.replace(/\-{2,}/, '-');
       });
   
       $(".matrix input").attr('autocomplete','off');
 
 
       $("#voltage-responses input").on('input', function () {
-          this.value = this.value.replace(/[^0-9\.\-\/]+|(?<=\/)\/|(?<=\.)\.|(?<=\-)\-/, '');
+        this.value = this.value.replace(/[^0-9\.\-\/]/, '');
+        this.value = this.value.replace(/\/{2,}/, '/');
+        this.value = this.value.replace(/\.{2,}/, '.');
+        this.value = this.value.replace(/\-{2,}/, '-');
       });
   
       $("#voltage-responses input").attr('autocomplete','off');
