@@ -4,6 +4,7 @@
         "nan": "Please input a response for all cells.",
         "x_resp_wrong": "Not quite. The convolution sum is very similar to how a signal is represented as a linear combination of unit impulses. If this does not help, read the lecture notes on convolution.",
         "h_resp_wrong": "Not quite. The convolution sum is very similar to how a signal is represented as a linear combination of unit impulses. If this does not help, read the lecture notes on convolution.",
+        "bottom_out": "Incorrect. The firs expression should be x[k] and the second should be x[n-k].",
         "correct": [
             true,
             "Correct!"
