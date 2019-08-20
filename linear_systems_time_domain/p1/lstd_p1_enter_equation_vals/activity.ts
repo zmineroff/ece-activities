@@ -27,10 +27,17 @@ const activity: Activity<State> = {
     render: (data: QuestionData<State>): void => {
         $("#prompt").html(data.prompt!);
 
-        // Need to use .attr('value', value) instead of .val(value) for mathml inputs
+        // Need to include .attr('value', value) for mathml inputs
+        $("#diffeq_var_1").val(data.state.diffeq_var_1);
         $("#diffeq_var_1").attr('value', data.state.diffeq_var_1);
+
+        $("#coeff_linear_term").val(data.state.coeff_linear_term);
         $("#coeff_linear_term").attr('value', data.state.coeff_linear_term);
+
+        $("#diffeq_var_2").val(data.state.diffeq_var_2);
         $("#diffeq_var_2").attr('value', data.state.diffeq_var_2);
+
+        $("#forcing_function").val(data.state.forcing_function);
         $("#forcing_function").attr('value', data.state.forcing_function);
 
         $("#hint").empty().append(widgets.hint(data.hints!, data.state.hint));
