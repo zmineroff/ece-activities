@@ -1,12 +1,12 @@
 {
     "prompt": "Write the convolution sum y[n] for a signal x[n], and an impulse response h[n]",
     "match": {
-        "nan": "You must input a number.",
-        "small": "That's too small.",
-        "big": "That's too large.",
-        "justright": [
+        "nan": "Please input a response for all cells.",
+        "x_resp_wrong": "Not quite. The convolution sum is very similar to how a signal is represented as a linear combination of unit impulses. If this does not help, read the lecture notes on convolution.",
+        "h_resp_wrong": "Not quite. The convolution sum is very similar to how a signal is represented as a linear combination of unit impulses. If this does not help, read the lecture notes on convolution.",
+        "correct": [
             true,
-            "That's just right!"
+            "Correct!"
         ]
     }
 }
