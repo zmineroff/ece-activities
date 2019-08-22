@@ -2,9 +2,12 @@
 <!DOCTYPE embed_activity PUBLIC "-//Carnegie Mellon University//DTD Embed 1.1//EN" "http://oli.cmu.edu/dtd/oli-embed-activity_1.0.dtd">
 <embed_activity id="convolution_p1_conv_sum" width="676" height="250">
   <title>Custom activity</title>
-  <source>webcontent/convolution_p1_conv_sum/activity.js</source>
+  <!-- <source>webcontent/convolution_p1_conv_sum/activity.js</source> -->
+  <source>webcontent/convolution/p1/convolution_p1_conv_sum/activity.js</source>
   <assets>
-    <asset name="layout">webcontent/convolution_p1_conv_sum/layout.html</asset>
-    <asset name="questions">webcontent/convolution_p1_conv_sum/questions.json</asset>
+    <!-- <asset name="layout">webcontent/convolution_p1_conv_sum/layout.html</asset> -->
+    <!-- <asset name="questions">webcontent/convolution_p1_conv_sum/questions.json</asset> -->
+    <asset name="layout">webcontent/convolution/p1/convolution_p1_conv_sum/layout.html</asset>
+    <asset name="questions">webcontent/convolution/p1/convolution_p1_conv_sum/questions.json</asset>
   </assets>
 </embed_activity>
