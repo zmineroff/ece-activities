@@ -35,6 +35,6 @@
     },
     "dependencies": {
         "@types/mathjs": "^5.0.1",
-        "mathjs": "^6.0.4"
+        "mathjs": "^7.5.1"
     }
 }
